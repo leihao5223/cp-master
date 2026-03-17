@@ -1,25 +1,4 @@
 <?php
-// 自动创建 xy_time_settings 表（执行一次后可以删除）
-$sql = "CREATE TABLE IF NOT EXISTS xy_time_settings (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  setting_key varchar(50) NOT NULL COMMENT '设置键名',
-  setting_value int(11) NOT NULL DEFAULT '0' COMMENT '设置值',
-  setting_desc varchar(255) DEFAULT NULL COMMENT '设置描述',
-  update_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  PRIMARY KEY (id),
-  UNIQUE KEY setting_key (setting_key)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='时间设置表';
-
-INSERT IGNORE INTO xy_time_settings (setting_key, setting_value, setting_desc) VALUES
-('withdraw_wait', 5, '提现等待时间（分钟）'),
-('deposit_wait', 2, '充值确认时间（分钟）'),
-('bet_interval', 1, '投注间隔（分钟）'),
-('order_expire', 30, '订单过期时间（分钟）');";
-
-// 执行建表
-$conn = mysqli_connect(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
-mysqli_query($conn, $sql);
-mysqli_close($conn);
 session_start();
 if (isset($_GET['lang']) && in_array($_GET['lang'], ['zh', 'en'])) {
     $_SESSION['lang'] = $_GET['lang'];
