@@ -4,6 +4,15 @@
 
 class User extends WebBase {
 
+    // 获取时间设置（用于判断是否允许操作）
+   private function getTimeSetting($key, $default = 0) {
+    $sql = "SELECT setting_value FROM xy_time_settings WHERE setting_key = '$key'";
+    $result = $this->query($sql);
+    if ($row = mysql_fetch_assoc($result)) {
+        return intval($row['setting_value']);
+    }
+    return $default;
+}
     public $title = 'EW享赢';
     private $vcodeSessionName = 'xy_vcode_session_name';
 
