@@ -1,10 +1,10 @@
 <?php
-require 'xy_lib/core/DBAccess.class';
-require 'xy_lib/core/Object.class';
-require 'xy_action/xy_default/WebBase.class.php';
-require 'xy_action/xy_default/WebLoginBase.class.php';
+require '../xy_lib/core/DBAccess.class';
+require '../xy_lib/core/Object.class';
+require '../xy_action/xy_default/WebBase.class.php';
+require '../xy_action/xy_default/WebLoginBase.class.php';
 
-require 'xy_config.php';
+require '../xy_config.php';
 
 $para=array();
 
