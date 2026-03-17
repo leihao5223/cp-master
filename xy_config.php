@@ -2,12 +2,12 @@
 require_once('xy_sqlin.php');
 $conf['debug']['level']=5;
 
-/*		���ݿ�����		*/
-$conf['db']['dsn']='mysql:host=localhost;dbname=xy_yule;charset=utf8';
-$dbname='xy_yule';
-$dbhost='localhost';
-$conf['db']['user']='root';
-$conf['db']['password']='root';
+/*		数据库配置		*/
+$conf['db']['dsn']='mysql:host='.getenv('DB_HOST').';dbname='.getenv('DB_NAME').';charset=utf8';
+$dbname=getenv('DB_NAME');
+$dbhost=getenv('DB_HOST');
+$conf['db']['user']=getenv('DB_USER');
+$conf['db']['password']=getenv('DB_PASSWORD');
 $conf['db']['charset']='utf8';
 $conf['db']['prename']='xy_';
 
@@ -19,8 +19,8 @@ $conf['url_modal']=2;
 $conf['action']['template']='xy_inc/xy_default/';
 $conf['action']['modals']='xy_action/xy_default/';
 
-$conf['member']['sessionTime']=15*60;	// �û���Чʱ��
-$weburl='http://www.cp.com';
+$conf['member']['sessionTime']=15*60;	// 会员有效时间
+$weburl='https://cpmaster-iota.vercel.app';
 error_reporting(E_ERROR & ~E_NOTICE);
 
 ini_set('date.timezone', 'asia/shanghai');
